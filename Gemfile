@@ -1,5 +1,6 @@
 source :gemcutter
 
+gem 'jeweler'
 gem 'net-ssh'
 gem 'net-ssh-gateway'
 gem 'net-sftp'
