@@ -1,5 +1,5 @@
 source :gemcutter
-
+gem 'builder'
 gem 'jeweler'
 gem 'net-ssh'
 gem 'net-ssh-gateway'
