@@ -6,6 +6,6 @@ pkg
 *.gem
 *.sh
 .DS_Store
-capistrano.gemspec
+rt-capistrano.gemspec
 .bundle/*
 Gemfile.lock
