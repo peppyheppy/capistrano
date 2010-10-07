@@ -161,6 +161,26 @@ module Capistrano
         # removes the repo.
         def export(revision, destination)
           checkout(revision, destination) << " && rm -Rf #{destination}/.git"
+          # PBH added this form here: https://capistrano.lighthouseapp.com/projects/8716/tickets/65-git-export-should-use-archive
+          git    = command
+          execute = []
+          args = []
+
+          args << '--format=tar'
+          args << "--remote=#{configuration[:repository]}"
+          if project = configuration[:project]
+            args << "#{revision}:#{project}"
+          else
+            args << revision
+          end
+
+          # export (using git archive)
+          execute << "mkdir -p #{destination}"
+          execute << "cd #{destination}"
+          execute << "#{git} archive #{args.join(' ')} | tar xf -"
+
+          execute.join(" && ")
+          # EOF PBH added          
         end
 
         # Merges the changes to 'head' since the last fetch, for remote_cache
