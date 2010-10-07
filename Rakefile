@@ -11,7 +11,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.version
-    gem.name            = "capistrano"
+    gem.name            = "rt-capistrano"
     gem.executables     = %W(capify cap)
     gem.summary         = %Q{Capistrano - Welcome to easy deployment with Ruby over SSH}
     gem.description     = %Q{Capistrano is a utility and framework for executing commands in parallel on multiple remote machines, via SSH.}
